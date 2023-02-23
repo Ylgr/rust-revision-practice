@@ -56,4 +56,6 @@ fn main() {
     let shape = find_shape("Not Square");
     println!("shape: {:?}", shape);
     // println!("shape sides: {:?}", shape.unwrap().get_sides()); // this will panic because unwrap() will try to access the value of None
+    println!("shape sides: {:?}", shape.unwrap_or(Shape::Round).get_sides()); // this will not panic because unwrap_or() will return the value of the default value
+    println!("shape sides: {:?}", shape.unwrap_or_else(|| Shape::Round).get_sides()); // this will not panic because unwrap_or_else() will return the value of the default value
 }
